@@ -1,5 +1,6 @@
 import pandas as pd
 import re         #引用re正则模块
+import time
 panda_name = input("请输入表格名称（须和代码文件在同一目录下，带上后缀名）：") # 获取表格名称
 def y_1(x):
     try:
@@ -222,9 +223,13 @@ while True:
         break
 
     if act == "Export":
-        ex_ch = input("请输入Excel表格名称（带上后缀名，允许不填）：")
-        if ex_ch == "":
-            bbb = 5
+        ex_ch = input("请输入Excel表格名称：")
+        k = 3
+        test_last = []
+        test_last = ex_ch.split(".")
+        if test_last[len(test_last)-1] != "xlsx":
+            print("文件名错误，请重试！")
+            k = 5
         
         Chinese.update({'成绩\姓名':'语文'})
         Maths.update({'成绩\姓名':'数学'})
@@ -240,6 +245,7 @@ while True:
                 title = list(Maths)
             if len(Maths) < len(English):
                 title = list(English)
+        title = list(Chinese)
 
         title.insert(0,title.pop())
         table = pd.DataFrame()
@@ -248,5 +254,6 @@ while True:
         table = table.append(English,ignore_index=True)
         
         table = table[title]
-        table.to_excel(ex_ch,index=False,header=True)
-        print("成功！")
+        if k != 5:
+            table.to_excel(ex_ch,index=False,header=True)
+            print("成功！")
