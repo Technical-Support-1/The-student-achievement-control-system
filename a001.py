@@ -1,7 +1,23 @@
 import pandas as pd
 import re         #引用re正则模块
-panda_name = input("请输入表格名称（须和代码文件在同一目录下）：") # 获取表格名称
-data = pd.read_excel(panda_name)  # 读取数据
+panda_name = input("请输入表格名称（须和代码文件在同一目录下，带上后缀名）：") # 获取表格名称
+def y_1(x):
+    try:
+        y = pd.read_excel(x)  # 读取数据来检测
+        return True
+    except FileNotFoundError:
+        return False
+if y_1(panda_name):
+    nnn = 10
+else:
+    print("文件名错误，请重试！")
+    while True:
+        panda_name = input("请输入表格名称（须和代码文件在同一目录下，带上后缀名）：") # 获取表格名称
+        if y_1(panda_name):
+            break
+        else:
+            print("文件名错误，请重试！")        
+data = pd.read_excel(panda_name)
 data1 = data.head(2)   #　起始行（取一行作为value，单学科仅需一个成绩）
 data2 = data1.drop(data1.index[[0]],axis=0)   # 删除不必要的行数
 Maths = data2.to_dict('list')   # 将DataFrame对象转换成value为列表的字典
@@ -206,7 +222,10 @@ while True:
         break
 
     if act == "Export":
-        ex_ch = input("请输入Excel表格名称：")
+        ex_ch = input("请输入Excel表格名称（带上后缀名，允许不填）：")
+        if ex_ch == "":
+            bbb = 5
+        
         Chinese.update({'成绩\姓名':'语文'})
         Maths.update({'成绩\姓名':'数学'})
         English.update({'成绩\姓名':'英语'})
