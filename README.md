@@ -5,7 +5,7 @@ A Python file to manage the achievement of students
 
 这是我们开发的第一个成熟项目，请多多提出建议！
 
-代码行数：280列左右（2021.5.28）
+代码行数：280行左右（2021.5.28）
 
 项目源码：Github地址:https://github.com/Technical-Support-1/The-student-achievement-control-system
 
