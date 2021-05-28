@@ -186,18 +186,24 @@ while True:
                     test_cg = 3     # 确保是整数或浮点数（此行是为了防止执行后面的语句）
             if test_cg == 5:
                 mark_f = float(mark_cg)
-                list_f = ["语文"]   # 首先添加便于标识，下同
+                list_f = ["语文："]   # 首先添加科目名称便于标识，下同
                 for i in Chinese:
-                    if mark_f == Chinese[i]:   #  如果符合，则添加相应元素
-                        list_f.append(i)
-                list_f.append("数学")
+                    if mark_f == Chinese[i]:
+                        list_f.append(i)       #  如果符合，则添加相应元素
+                if list_f[len(list_f)-1] == "语文：":
+                    list_f.pop()
+                list_f.append("数学：")
                 for i in Maths:
                     if mark_f == Maths[i]:
                         list_f.append(i)
-                list_f.append("英语")
+                if list_f[len(list_f)-1] == "数学：":
+                    list_f.pop()
+                list_f.append("英语：")
                 for i in English:
                     if mark_f == English[i]:
                         list_f.append(i)
+                if list_f[len(list_f)-1] == "英语：":
+                    list_f.pop()
                 print("查询到的人：",list_f)
         if test_f == "N":
             name_f = input("请输入姓名：")
