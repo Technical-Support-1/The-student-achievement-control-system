@@ -5,7 +5,7 @@ A Python file to manage the achievement of students
 
 这是我们开发的第一个成熟项目，请多多提出建议！
 
-代码行数：230列左右（2021.5.16）
+代码行数：280列左右（2021.5.28）
 
 项目源码：Github地址:https://github.com/Technical-Support-1/The-student-achievement-control-system
 
@@ -15,6 +15,8 @@ A Python file to manage the achievement of students
 这是一个用于快速管理学生成绩的管理系统，其数据从Excel表格导入，要求见下图
 
 https://ftp.bmp.ovh/imgs/2021/05/7a92612bae543331.png
+
+请使用Python3.6及以上版本运行
 
 使用指南已内嵌在程序中，请仔细阅读。
 
