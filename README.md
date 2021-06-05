@@ -12,7 +12,7 @@ A Python file to manage the achievement of students
 国内gitee地址：https://gitee.com/technical-support-1/The-student-achievement-control-system
 
 # 使用指南
-这是一个用于快速管理学生成绩的管理系统，其数据从Excel表格导入，要求见下图
+这是一个用于快速管理学生成绩的管理系统，其数据从Excel表格(.xls或.xlsx)导入，要求见下图
 
 https://ftp.bmp.ovh/imgs/2021/05/7a92612bae543331.png
 
