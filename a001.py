@@ -21,11 +21,11 @@ else:
 data = pd.read_excel(panda_name)
 data1 = data.head(2)   #　起始行（取一行作为value，单学科仅需一个成绩）
 data2 = data1.drop(data1.index[[0]],axis=0)   # 删除不必要的行数
-Maths = data2.to_dict('list')   # 将DataFrame对象转换成value为列表的字典
+Mathsttt = data2.to_dict('list')   # 将DataFrame对象转换成value为列表的字典
 Maths.pop('成绩\\姓名')  # 删除最前面不需要的标签
 for delta in Maths:       # 得到每一个key
     for ppt in Maths[delta]:  # 从key得到value，再转换为数字
-        ppt1 = float(ppt)  # 将其转换为浮点类型方便计算
+        ppt1 = float(ppt)  # 将其转换为浮点类型方便统计
         Maths[delta] = ppt1   # 赋值给原来的对象
 data1 = data.head(1)   # 下同
 Chinese = data1.to_dict("list")   #  因为只提取了一行，所以不用删除
@@ -105,7 +105,7 @@ while True:
         else:
             k = 3
         if k !=5:
-            print("人名不存在，请重试")           # 检查是否存在此人（下同）
+            print("人名不存在，请重试")           # 以上是为了检查是否存在此人（下同）
             subject = 0    # 防止执行后面的语句
         if subject == "Chinese":
             d_test=input(F"TA的分数是{Chinese[name]},您确定要继续吗？（Y/N）")   # 确认信息
@@ -190,8 +190,8 @@ while True:
                 for i in Chinese:
                     if mark_f == Chinese[i]:
                         list_f.append(i)       #  如果符合，则添加相应元素
-                if list_f[len(list_f)-1] == "语文：":
-                    list_f.pop()
+                if list_f[len(list_f)-1] == "语文：":  
+                    list_f.pop()   # 如果最后一项仍是Chinese（未找到任何符合的元素），则删除原来的标签（下同）
                 list_f.append("数学：")
                 for i in Maths:
                     if mark_f == Maths[i]:
@@ -257,12 +257,13 @@ while True:
                 title = list(English)
             if len(English) <  len(Chinese):
                 title = list(Chinese)
-        if len(Chinese) < len(Maths):
+        elif len(Chinese) < len(Maths):
             if len(Maths) > len(English):
                 title = list(Maths)
             if len(Maths) < len(English):
                 title = list(English)
-        title = list(Chinese)     #  以上是为了判断用哪个字典获取人名
+        else:
+            title = list(Chinese)     #  以上是为了判断用哪个字典获取人名
 
         title.insert(0,title.pop())  
         table = pd.DataFrame()
