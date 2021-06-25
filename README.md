@@ -22,6 +22,6 @@ https://ftp.bmp.ovh/imgs/2021/05/7a92612bae543331.png
 
 有问题请先自行排查问题，遇到解决不了问题再到Issues中反馈
 
-有改进的建议可以通过邮箱(zz20080827@163.com)或Issues留言，我会定期更新程序
+有改进的建议可以通过邮箱(wikidot-cn@outlook.com)或Issues留言，我会定期更新程序
 
 祝使用愉快！
